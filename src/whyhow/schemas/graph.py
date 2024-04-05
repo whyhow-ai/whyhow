@@ -44,15 +44,9 @@ class QueryGraphResponse(BaseResponse):
 
     namespace: str
     answer: str
-    # triples: list[Triple]
-    cypher_query: str
-    context: str
 
 
 class QueryGraphReturn(BaseReturn):
     """Schema for the return value of the query graph endpoint."""
 
     answer: str
-    # triples: list[Triple]
-    cypher_query: str
-    context: str

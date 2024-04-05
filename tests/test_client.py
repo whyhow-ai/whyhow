@@ -29,7 +29,10 @@ class TestWhyHow:
         args, kwargs = fake_httpx_client_class.call_args
 
         assert not args
-        assert kwargs["base_url"] == "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com"
+        assert (
+            kwargs["base_url"]
+            == "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com"
+        )
         assert not kwargs["verify"]
 
         assert client.httpx_client is fake_httpx_client_class.return_value

@@ -40,8 +40,6 @@ class TestGraphAPIQuery:
         fake_response_body = QueryGraphResponse(
             namespace="something",
             answer="Alice knows Bob",
-            cypher_query="MATCH (p:Person) {p.name: 'Alice'}-[:knows]->(p2:Person) RETURN p2",
-            context="Alice knows Bob",
         )
         httpx_mock.add_response(
             method="POST",
@@ -53,11 +51,7 @@ class TestGraphAPIQuery:
             query=query,
         )
 
-        assert result == QueryGraphReturn(
-            answer="Alice knows Bob",
-            cypher_query="MATCH (p:Person) {p.name: 'Alice'}-[:knows]->(p2:Person) RETURN p2",
-            context="Alice knows Bob",
-        )
+        assert result == QueryGraphReturn(answer="Alice knows Bob")
 
         actual_request = httpx_mock.get_requests()[0]
         expected_request_body = QueryGraphRequest(query=query)
