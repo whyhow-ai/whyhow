@@ -134,10 +134,6 @@ class GraphAPI(APIBase):
 
         response = QueryGraphResponse.model_validate(raw_response.json())
 
-        retval = QueryGraphReturn(
-            answer=response.answer,
-            cypher_query=response.cypher_query,
-            context=response.context,
-        )
+        retval = QueryGraphReturn(answer=response.answer)
 
         return retval
