@@ -70,7 +70,8 @@ class WhyHow:
         neo4j_url: str | None = None,
         neo4j_user: str | None = None,
         neo4j_password: str | None = None,
-        base_url: str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
+        base_url:
+            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""
@@ -165,7 +166,8 @@ class AsyncWhyHow:
         neo4j_user: str | None = None,
         neo4j_password: str | None = None,
         neo4j_url: str | None = None,
-        base_url: str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
+        base_url:
+            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""
