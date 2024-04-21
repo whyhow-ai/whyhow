@@ -1,12 +1,16 @@
 """Interacting with the graph API."""
 
+import json
 import os
 from pathlib import Path
 
 from whyhow.apis.base import APIBase
+from whyhow.schemas.common import Schema as SchemaModel
 from whyhow.schemas.graph import (
     AddDocumentsResponse,
     CreateGraphResponse,
+    CreateQuestionGraphRequest,
+    CreateSchemaGraphRequest,
     QueryGraphRequest,
     QueryGraphResponse,
     QueryGraphReturn,
@@ -85,19 +89,50 @@ class GraphAPI(APIBase):
         ----------
         namespace : str
             The namespace of the graph to create.
-        documents : list[str]
-            The documents to associate with the graph. Only supports PDFs for now.
-        concepts : list[str]
-            The concepts to initialize the graph with.
+        questions : list[str]
+            The seed concepts to initialize the graph with.
         """
         if not questions:
             raise ValueError("No questions provided")
 
-        params = {"questions": questions}
+        request_body = CreateQuestionGraphRequest(questions=questions)
 
         raw_response = self.client.post(
             f"{self.prefix}/{namespace}/create_graph",
-            params=params,
+            json=request_body.model_dump(),
+        )
+
+        raw_response.raise_for_status()
+
+        response = CreateGraphResponse.model_validate(raw_response.json())
+
+        return response.message
+
+    def create_graph_from_schema(
+        self, namespace: str, schema_file: str
+    ) -> str:
+        """Create a new graph based on a user-defined schema.
+
+        Parameters
+        ----------
+        namespace : str
+            The namespace of the graph to create.
+        schema_file : str
+            The schema file to use to build the graph.
+        """
+        if not schema_file:
+            raise ValueError("No schema provided")
+
+        with open(schema_file, "r") as file:
+            schema_data = json.load(file)
+
+        schema_model = SchemaModel(**schema_data)
+
+        request_body = CreateSchemaGraphRequest(graph_schema=schema_model)
+
+        raw_response = self.client.post(
+            f"{self.prefix}/{namespace}/create_graph_from_schema",
+            json=request_body.model_dump(),
         )
 
         raw_response.raise_for_status()

@@ -7,7 +7,7 @@
 [![Checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](https://mypy-lang.org/)
 [![Whyhow Discord](https://dcbadge.vercel.app/api/server/9bWqrsxgHr?compact=true&style=flat)](https://discord.gg/9bWqrsxgHr)
 
-The WhyHow Knowledge Graph Creation SDK enables you to quickly and easily build automated knowledge graphs tailored to your unique worldview. Instantly build, extend, and query well-scoped KGs using a raw PDF and simple seed concepts in natural language. This version leverages OpenAI for embeddings and NLP, Pinecone serverless for scalable vector search and storage, and Neo4j for graph data storage and management.
+The WhyHow Knowledge Graph Creation SDK enables you to quickly and easily build automated knowledge graphs tailored to your unique worldview. Instantly build, extend, and query well-scoped KGs with your data.
 
 # Installation
 
@@ -74,15 +74,91 @@ Your namespace is a logical grouping of the raw data you upload, the seed concep
 namespace = "harry-potter"
 documents = ["files/harry_potter_and_the_philosophers_stone.pdf","files/harry_potter_and_the_chamber_of_secrets.pdf"]
 
-add_docs_response = client.graph.add_documents(namespace, documents)
-print(add_docs_response)
+documents_response = client.graph.add_documents(namespace, documents)
+print(documents_response)
 # Adding your documents
 
 ```
 
 ## Create a graph
 
-Tell the WhyHow SDK what you care about by providing a list of concepts in the form of natural language questions. Using these questions, we create a small ontology to guide extraction of entities and relationships that are most relevant to your use case. We then construct triples and generate a graph.
+You can create a graph in two different ways. First, you can create a graph using a user-defined schema, giving you complete control over the types of entities and relationships that are extracted and used to build the graph. Or, you can create a graph using a set of seed questions. In this case, WhyHow will automatically extract entities and relationships that are most applicable to the things you want to know, and construct a graph from these concepts.
+
+Create graph with **schema** if...
+
+1. Your graph must adhere to a consistent structure.
+2. You are very familiar with the structure of your raw documents.
+3. You need comprehensive extraction of concepts across the entire document.
+
+Create graph with **seed questions** if...
+
+1. You are unsure as to which relationships and patterns you'd like to build into your graph.
+2. You want to build your graph with only the most semantically similar raw data.
+
+### Create a graph with schema
+
+Tell the WhyHow SDK exactly which entities, relationships, and patterns you'd like to extract and build into your graph by defining them in a JSON-based schema.
+
+```shell
+
+#schema.json
+
+{
+  "entities": [
+    {
+      "name": "character",
+      "description": "A person appearing in the book, e.g., Harry Potter, Ron Weasley, Hermione Granger, Albus Dumbledore."
+    },
+    {
+      "name": "object",
+      "description": "Inanimate items that characters use or interact with, e.g., wand, Philosopher's Stone, Invisibility Cloak, broomstick."
+    }
+    ...
+  ],
+  "relations": [
+    {
+      "name": "friends with",
+      "description": "Denotes a friendly relationship between characters."
+    },
+    {
+      "name": "interacts with",
+      "description": "Describes a scenario in which a character engages with another character, creature, or object."
+    },
+    ...
+  ],
+  "patterns": [
+    {
+      "head": "character",
+      "relation": "friends with",
+      "tail": "character",
+      "description": "One character is friends with another, e.g., Harry Potter is friends with Ron Weasley."
+    },
+    {
+      "head": "character",
+      "relation": "interacts with",
+      "tail": "object",
+      "description": "A character interacting with an object, e.g., Harry Potter interacts with the Invisibility Cloak."
+    }
+  ]
+}
+
+```
+
+Using this schema, we extract relevant concepts from your raw data, construct triples, and generate a graph according to the patterns you define.
+
+```shell
+# Create graph from schema
+
+schema = "files/schema.json"
+create_graph_with_schema_response = client.graph.create_graph_from_schema(namespace, schema)
+print(create_graph_with_schema_response)
+# Creating your graph
+
+```
+
+### Create a graph with seed questions
+
+Tell the WhyHow SDK what you care about by providing a list of concepts in the form of natural language questions. Using these questions, we create a small ontology to guide extraction of entities and relationships that are most relevant to your use case, then construct a graph.
 
 ```shell
 

@@ -1,6 +1,6 @@
 """Shared schemas."""
 
-from typing import Any
+from typing import Any, List, Optional
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -135,3 +135,49 @@ class Triple(BaseModel):
             tail_type=end.labels[0],  # take the first label
             properties=relationship.properties,
         )
+
+
+# GRAPH SCHEMA
+class SchemaEntity(BaseModel):
+    """Schema Entity model."""
+
+    name: str
+    description: str
+
+
+class SchemaRelation(BaseModel):
+    """Schema Relation model."""
+
+    name: str
+    description: str
+
+
+class TriplePattern(BaseModel):
+    """Schema Triple Pattern model."""
+
+    head: str
+    relation: str
+    tail: str
+    description: str
+
+
+class Schema(BaseModel):
+    """Schema model."""
+
+    entities: List[SchemaEntity] = Field(default_factory=list)
+    relations: List[SchemaRelation] = Field(default_factory=list)
+    patterns: List[TriplePattern] = Field(default_factory=list)
+
+    def get_entity(self, name: str) -> Optional[SchemaEntity]:
+        """Return an entity by name if it exists in the schema."""
+        for entity in self.entities:
+            if entity.name == name:
+                return entity
+        return None  # Return None if no entity with that name is found
+
+    def get_relation(self, name: str) -> Optional[SchemaRelation]:
+        """Return a relation by name if it exists in the schema."""
+        for relation in self.relations:
+            if relation.name == name:
+                return relation
+        return None  # Return None if no relation with that name is found

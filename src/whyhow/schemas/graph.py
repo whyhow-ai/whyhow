@@ -3,7 +3,7 @@
 from typing import Literal
 
 from whyhow.schemas.base import BaseRequest, BaseResponse, BaseReturn
-from whyhow.schemas.common import Graph
+from whyhow.schemas.common import Graph, Schema
 
 # Custom types
 Status = Literal["success", "pending", "failure"]
@@ -14,6 +14,18 @@ class AddDocumentsResponse(BaseResponse):
 
     namespace: str
     message: str
+
+
+class CreateQuestionGraphRequest(BaseRequest):
+    """Schema for the request body of the create graph endpoint."""
+
+    questions: list[str]
+
+
+class CreateSchemaGraphRequest(BaseRequest):
+    """Schema for the request body of the create graph with schema endpoint."""
+
+    graph_schema: Schema
 
 
 # Request and response schemas
