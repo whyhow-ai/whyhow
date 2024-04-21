@@ -9,12 +9,16 @@ from whyhow.client import WhyHow
 
 
 class TestWhyHow:
+    """Tests for the WhyHow class."""
+
     def test_constructor_missing_api_key(self, monkeypatch):
+        """Test creating a WhyHow instance without an API key."""
         monkeypatch.delenv("WHYHOW_API_KEY", raising=False)
         with pytest.raises(ValueError, match="WHYHOW_API_KEY must be set"):
             WhyHow()
 
     def test_httpx_kwargs(self, monkeypatch):
+        """Test passing httpx_kwargs to the constructor."""
         fake_httpx_client_inst = Mock(spec=Client)
         fake_httpx_client_class = Mock(return_value=fake_httpx_client_inst)
 
@@ -38,6 +42,7 @@ class TestWhyHow:
         assert client.httpx_client is fake_httpx_client_class.return_value
 
     def test_base_url_twice(self):
+        """Test setting base_url in httpx_kwargs."""
         with pytest.raises(
             ValueError, match="base_url cannot be set in httpx_kwargs."
         ):

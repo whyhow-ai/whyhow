@@ -1,3 +1,5 @@
+"""This module contains pytest fixtures that are used across multiple files."""
+
 import pathlib
 
 import pytest
@@ -5,6 +7,7 @@ import pytest
 
 @pytest.fixture
 def test_path():
+    """Return the path of the test file."""
     return pathlib.Path(__file__).parent
 
 

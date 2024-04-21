@@ -33,7 +33,10 @@ EXAMPLE_GRAPH = Graph(
 
 
 class TestGraphAPIQuery:
+    """Tests for the query_graph method."""
+
     def test_query_graph(self, httpx_mock):
+        """Test querying the graph."""
         client = WhyHow()
         query = "What friends does Alice have?"
 
@@ -64,8 +67,10 @@ class TestGraphAPIQuery:
 
 
 class TestGraphAPIAddDocuments:
+    """Tests for the add_documents method."""
 
     def test_errors(self, httpx_mock, tmp_path):
+        """Test error handling."""
         client = WhyHow()
 
         with pytest.raises(ValueError, match="No documents provided"):
