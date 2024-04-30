@@ -55,10 +55,8 @@ class GraphAPI(APIBase):
             )
 
         if len(document_paths) > 3:
-            raise ValueError(
-                """Too many documents
-                please limit uploads to 3 files during the beta."""
-            )
+            raise ValueError("""Too many documents
+                please limit uploads to 3 files during the beta.""")
 
         files = [
             (
