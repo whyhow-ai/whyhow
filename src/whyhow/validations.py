@@ -13,6 +13,7 @@ class VerifyConnectivity:
 
     def __post_init__(self):
         self._verify_neo4j_connectivity()
+        self._verify_pinecone_connectivity()
 
     def _verify_neo4j_connectivity(self):
         auth = (self.neo4j_user, self.neo4j_password)
