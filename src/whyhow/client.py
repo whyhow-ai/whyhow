@@ -6,6 +6,9 @@ from typing import Any, Generator
 from httpx import AsyncClient, Auth, Client, Request, Response
 
 from whyhow.apis.graph import GraphAPI
+from whyhow.validations import VerifyConnectivity
+
+BASE_URL = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com"
 
 
 class APIKeyAuth(Auth):
@@ -70,8 +73,7 @@ class WhyHow:
         neo4j_url: str | None = None,
         neo4j_user: str | None = None,
         neo4j_password: str | None = None,
-        base_url:
-            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
+        base_url: str = BASE_URL,
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""
@@ -113,6 +115,10 @@ class WhyHow:
 
             if neo4j_url is None:
                 raise ValueError("NEO4J_URL must be set.")
+
+        VerifyConnectivity(
+            neo4j_url, neo4j_user, neo4j_password, pinecone_api_key
+        )
 
         auth = APIKeyAuth(
             api_key,
@@ -166,8 +172,7 @@ class AsyncWhyHow:
         neo4j_user: str | None = None,
         neo4j_password: str | None = None,
         neo4j_url: str | None = None,
-        base_url:
-            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
+        base_url: str = BASE_URL,
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""

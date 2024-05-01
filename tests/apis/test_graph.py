@@ -1,6 +1,7 @@
 """Tests focused on the graph API."""
 
 import os
+from unittest.mock import Mock
 
 import pytest
 
@@ -11,6 +12,7 @@ from whyhow.schemas.graph import (
     QueryGraphResponse,
     QueryGraphReturn,
 )
+from whyhow.validations import VerifyConnectivity
 
 # Set fake environment variables
 os.environ["WHYHOW_API_KEY"] = "fake_api_key"
@@ -35,8 +37,14 @@ EXAMPLE_GRAPH = Graph(
 class TestGraphAPIQuery:
     """Tests for the query_graph method."""
 
-    def test_query_graph(self, httpx_mock):
+    def test_query_graph(self, httpx_mock, monkeypatch):
         """Test querying the graph."""
+        connectivity_client = Mock(spec=VerifyConnectivity)
+        connectivity_client.return_value = None
+        monkeypatch.setattr(
+            "whyhow.client.VerifyConnectivity", connectivity_client
+        )
+
         client = WhyHow()
         query = "What friends does Alice have?"
 
@@ -69,8 +77,14 @@ class TestGraphAPIQuery:
 class TestGraphAPIAddDocuments:
     """Tests for the add_documents method."""
 
-    def test_errors(self, httpx_mock, tmp_path):
+    def test_errors(self, monkeypatch, tmp_path):
         """Test error handling."""
+        connectivity_client = Mock(spec=VerifyConnectivity)
+        connectivity_client.return_value = None
+        monkeypatch.setattr(
+            "whyhow.client.VerifyConnectivity", connectivity_client
+        )
+
         client = WhyHow()
 
         with pytest.raises(ValueError, match="No documents provided"):
