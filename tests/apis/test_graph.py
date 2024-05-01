@@ -39,7 +39,6 @@ class TestGraphAPIQuery:
 
     def test_query_graph(self, httpx_mock, monkeypatch):
         """Test querying the graph."""
-
         connectivity_client = Mock(spec=VerifyConnectivity)
         connectivity_client.return_value = None
         monkeypatch.setattr(
@@ -80,7 +79,6 @@ class TestGraphAPIAddDocuments:
 
     def test_errors(self, monkeypatch, tmp_path):
         """Test error handling."""
-
         connectivity_client = Mock(spec=VerifyConnectivity)
         connectivity_client.return_value = None
         monkeypatch.setattr(

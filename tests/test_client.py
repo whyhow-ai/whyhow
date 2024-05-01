@@ -51,6 +51,7 @@ class TestWhyHow:
         assert client.httpx_client is fake_httpx_client_class.return_value
 
     def test_credentials_verification(self, monkeypatch):
+        """Test connectivity with databases."""
         connectivity_client = Mock(spec=VerifyConnectivity)
         connectivity_client.side_effect = ConfigurationError(
             "Invalid credentials"
