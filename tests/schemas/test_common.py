@@ -1,4 +1,4 @@
-"""This module contains tests for the common schemas."""
+"""Tests for whyhow.schemas.common."""
 
 import pytest
 
@@ -6,7 +6,7 @@ from whyhow.schemas.common import Entity, Graph, Node, Relationship, Triple
 
 
 class TestGraph:
-    """Tests for the Graph schema."""
+    """Tests for the Graph class."""
 
     def test_no_nodes(self):
         """Test creating a graph with no nodes."""
@@ -45,10 +45,10 @@ class TestGraph:
 
 
 class TestEntity:
-    """Tests for the Entity schema."""
+    """Tests for the Entity class."""
 
     def test_overall(self):
-        """Test creating an entity."""
+        """Test creating an entity and converting it to a node."""
         entity = Entity(
             text="Alice", label="Person", properties={"foo": "bar"}
         )
@@ -67,7 +67,7 @@ class TestEntity:
         assert entity.properties is not entity_reconstructed.properties
 
     def test_missing_name(self):
-        """Test creating an entity with missing name."""
+        """Test creating an entity without a name property."""
         node = Node(labels=["Person"], properties={})
 
         with pytest.raises(ValueError, match="Node must have a name property"):
@@ -75,10 +75,47 @@ class TestEntity:
 
 
 class TestTriple:
-    """Tests for the Triple schema."""
+    """Tests for the Triple class."""
+
+    # def test_overall(self):
+    #     triple = Triple(
+    #         head="Alice",
+    #         head_type="Person",
+    #         relationship="KNOWS",
+    #         tail="Bob",
+    #         tail_type="Person",
+    #         properties={"since": 1999},
+    #     )
+
+    #     assert triple.head == "Alice"
+    #     assert triple.head_type == "Person"
+    #     assert triple.relationship == "KNOWS"
+    #     assert triple.tail == "Bob"
+    #     assert triple.tail_type == "Person"
+
+    #     rel = triple.to_relationship()
+
+    #     assert rel.start_node.labels == ["Person"]
+    #     assert rel.start_node.properties == {"name": "Alice"}
+    #     assert rel.end_node.labels == ["Person"]
+    #     assert rel.end_node.properties == {"name": "Bob"}
+    #     assert rel.type == "KNOWS"
+    #     assert rel.properties == {"since": 1999}
+
+    #     triple_reconstructed = Triple.from_relationship(rel)
+
+    #     assert triple.head == triple_reconstructed.head
+    #     assert triple.head_type == triple_reconstructed.head_type
+    #     assert triple.relationship == triple_reconstructed.relationship
+    #     assert triple.tail == triple_reconstructed.tail
+    #     assert triple.tail_type == triple_reconstructed.tail_type
+    #     assert triple.properties == triple_reconstructed.properties
+
+    #     # test properties copied
+    #     assert triple.properties is not triple_reconstructed.properties
 
     def test_missing_name(self):
-        """Test creating a triple with missing name."""
+        """Test creating a triple with a node missing a name property."""
         rel = Relationship(
             start_node=Node(labels=["Person"], properties={}),
             end_node=Node(labels=["Person"], properties={"name": "Bob"}),

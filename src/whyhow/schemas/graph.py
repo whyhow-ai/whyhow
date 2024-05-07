@@ -49,6 +49,26 @@ class QueryGraphRequest(BaseRequest):
     """Schema for the request body of the query graph endpoint."""
 
     query: str
+    include_triples: bool = False
+    include_chunks: bool = False
+
+
+class QueryGraphTripleResponse(BaseResponse):
+    """Schema for the triples within the query graph response."""
+
+    head: str
+    relation: str
+    tail: str
+
+
+class QueryGraphChunkResponse(BaseResponse):
+    """Schema for the triples within the query graph response."""
+
+    head: str
+    relation: str
+    tail: str
+    chunk_ids: list[str]
+    chunk_texts: list[str]
 
 
 class QueryGraphResponse(BaseResponse):
@@ -56,9 +76,14 @@ class QueryGraphResponse(BaseResponse):
 
     namespace: str
     answer: str
+    triples: list[QueryGraphTripleResponse] = []
+    chunks: list[QueryGraphChunkResponse] = []
 
 
 class QueryGraphReturn(BaseReturn):
     """Schema for the return value of the query graph endpoint."""
 
+    namespace: str
     answer: str
+    triples: list[QueryGraphTripleResponse] = []
+    chunks: list[QueryGraphChunkResponse] = []

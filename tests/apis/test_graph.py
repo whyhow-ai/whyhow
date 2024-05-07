@@ -6,11 +6,7 @@ import pytest
 
 from whyhow.client import WhyHow
 from whyhow.schemas.common import Graph, Node, Relationship
-from whyhow.schemas.graph import (
-    QueryGraphRequest,
-    QueryGraphResponse,
-    QueryGraphReturn,
-)
+from whyhow.schemas.graph import QueryGraphRequest, QueryGraphResponse
 
 # Set fake environment variables
 os.environ["WHYHOW_API_KEY"] = "fake_api_key"
@@ -33,16 +29,18 @@ EXAMPLE_GRAPH = Graph(
 
 
 class TestGraphAPIQuery:
-    """Tests for the query_graph method."""
+    """Tests for the query method."""
 
     def test_query_graph(self, httpx_mock):
-        """Test querying the graph."""
+        """Test the query_graph method."""
         client = WhyHow()
         query = "What friends does Alice have?"
 
         fake_response_body = QueryGraphResponse(
             namespace="something",
             answer="Alice knows Bob",
+            triples=[],
+            chunks=[],
         )
         httpx_mock.add_response(
             method="POST",
@@ -54,7 +52,12 @@ class TestGraphAPIQuery:
             query=query,
         )
 
-        assert result == QueryGraphReturn(answer="Alice knows Bob")
+        assert result == QueryGraphResponse(
+            namespace="something",
+            answer="Alice knows Bob",
+            triples=[],
+            chunks=[],
+        )
 
         actual_request = httpx_mock.get_requests()[0]
         expected_request_body = QueryGraphRequest(query=query)
@@ -70,7 +73,7 @@ class TestGraphAPIAddDocuments:
     """Tests for the add_documents method."""
 
     def test_errors(self, httpx_mock, tmp_path):
-        """Test error handling."""
+        """Test various error cases."""
         client = WhyHow()
 
         with pytest.raises(ValueError, match="No documents provided"):

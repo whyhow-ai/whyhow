@@ -160,4 +160,15 @@ namespace = "harry-potter-2"
 seed_questions_query_response = client.graph.query_graph(namespace, query)
 print("Query Response:", query_response)
 
+# Include the triples in the return 
+query = "Who is Harry friends with?"
+namespace = "harry-potter"
+schema_query_response = client.graph.query_graph(namespace, query, include_triples = True)
+print("Query Response:", query_response)
+
+# Include the chunk context in the return 
+query = "Who is Harry friends with?"
+namespace = "harry-potter"
+schema_query_response = client.graph.query_graph(namespace, query, include_chunks = True)
+print("Query Response:", query_response)
 ```

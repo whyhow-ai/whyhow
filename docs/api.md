@@ -75,7 +75,7 @@ Create a new graph based on a user-defined schema.
 ### `query_graph`
 
 ```python
-def query_graph(self, namespace: str, query: str) -> QueryGraphReturn
+def query_graph(self, namespace: str, query: str, include_triples: bool = False, include_chunks: bool = False) -> QueryGraphReturn
 ```
 
 Query the graph.
@@ -84,10 +84,12 @@ Query the graph.
 
 - `namespace` (str): The namespace of the graph.
 - `query` (str): The query to run.
+- `include_triples` (bool): Include the triples used in the return.
+- `include_chunks` (bool): Include the chunk ids and chunk text in the return.
 
 #### Returns
 
-- (`QueryGraphReturn`): The answer, triples, and Cypher query.
+- (`QueryGraphReturn`): The answer, triples (optional), and chunks (optional).
 
 ## Schemas
 
@@ -148,6 +150,8 @@ class QueryGraphResponse(BaseResponse):
 
     namespace: str
     answer: str
+    include_triples: bool = False
+    include_chunks: bool = False
 ```
 
 ### `QueryGraphReturn`

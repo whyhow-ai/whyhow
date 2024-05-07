@@ -13,7 +13,6 @@ from whyhow.schemas.graph import (
     CreateSchemaGraphRequest,
     QueryGraphRequest,
     QueryGraphResponse,
-    QueryGraphReturn,
 )
 
 
@@ -56,8 +55,9 @@ class GraphAPI(APIBase):
 
         if len(document_paths) > 3:
             raise ValueError(
-                """Too many documents
-                please limit uploads to 3 files during the beta."""
+                """Too many documents.
+                please limit uploads to 3 files during the beta.
+                """
             )
 
         files = [
@@ -142,7 +142,13 @@ class GraphAPI(APIBase):
 
         return response.message
 
-    def query_graph(self, namespace: str, query: str) -> QueryGraphReturn:
+    def query_graph(
+        self,
+        namespace: str,
+        query: str,
+        include_triples: bool = False,
+        include_chunks: bool = False,
+    ) -> QueryGraphResponse:
         """Query the graph.
 
         Parameters
@@ -155,11 +161,15 @@ class GraphAPI(APIBase):
 
         Returns
         -------
-        QueryGraphReturn
-            The answer, triples, and Cypher query.
+        QueryGraphResponse
+            The namespace, answer, triples, and chunks and Cypher query.
 
         """
-        request_body = QueryGraphRequest(query=query)
+        request_body = QueryGraphRequest(
+            query=query,
+            include_triples=include_triples,
+            include_chunks=include_chunks,
+        )
 
         raw_response = self.client.post(
             f"{self.prefix}/{namespace}/query",
@@ -170,6 +180,6 @@ class GraphAPI(APIBase):
 
         response = QueryGraphResponse.model_validate(raw_response.json())
 
-        retval = QueryGraphReturn(answer=response.answer)
+        # retval = QueryGraphReturn(answer=response.answer)
 
-        return retval
+        return response
