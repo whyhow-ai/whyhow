@@ -29,7 +29,7 @@ EXAMPLE_GRAPH = Graph(
 
 
 class TestGraphAPIQuery:
-    """Tests for the query method."""
+    """Tests for the query_graph method."""
 
     def test_query_graph(self, httpx_mock):
         """Test the query_graph method."""
@@ -73,7 +73,7 @@ class TestGraphAPIAddDocuments:
     """Tests for the add_documents method."""
 
     def test_errors(self, httpx_mock, tmp_path):
-        """Test various error cases."""
+        """Test error cases."""
         client = WhyHow()
 
         with pytest.raises(ValueError, match="No documents provided"):
@@ -91,7 +91,9 @@ class TestGraphAPIAddDocuments:
 
         tmp_pdf_2.touch()
 
-        with pytest.raises(ValueError, match="Only PDFs are supported"):
+        with pytest.raises(
+            ValueError, match="Only PDFs and CSVs are supported"
+        ):
             client.graph.add_documents(
                 "something",
                 documents=[tmp_pdf_1, tmp_pdf_2],

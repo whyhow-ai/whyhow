@@ -143,11 +143,57 @@ print("Extracted Graph:", extracted_graph)
 
 ```
 
+## Option 3 - Create the Knowledge Graph from CSV
+
+WhyHow also supports creating a graph from structured data in the form a CSV file. Note, right now we only support creating a graph from one CSV file per namespace. If you upload more than one file, the first will be overwritten.
+
+```shell
+namespace = "specialists"
+documents = ["../examples/assets/specialists.csv"]
+schema_file = "../examples/assets/specialists.json"
+
+# Automatically generate a schema
+schema = client.graph.generate_schema(documents=documents)
+print(schema)
+
+# Add documents to your namespace
+documents_response = client.graph.add_documents(
+    namespace=namespace, documents=documents)
+
+```
+
+Use the `create_graph_from_csv` function to create a graph from the uploaded CSV file. The function will automatically use the schema provided to generate the graph
+
+```shell
+csv_graph = client.graph.create_graph_from_csv(
+    namespace=namespace, schema_file=schema_file
+)
+
+print(csv_graph)
+
+```
+
 ## Querying the Knowledge Graph
 
 With the graphs created, you can now query them to find specific information:
 
 ```shell
+# Query the graph created from csv using specific entities and relations
+query = "Who speaks English and live in Houston?"
+entities = ["English","Houston"]
+relations = ["SPEAKS","LIVE_IN"]
+
+specific_query_response = client.graph.query_graph_specific(
+    namespace=namespace,
+    query=query,
+    entities=entities,
+    relations=relations,
+    include_triples=False,
+    include_chunks=False,
+)
+
+print("Specific Query Response:", specific_query_response)
+
 # Query graph created from schema
 query = "Who is Harry friends with?"
 namespace = "harry-potter"
@@ -160,13 +206,13 @@ namespace = "harry-potter-2"
 seed_questions_query_response = client.graph.query_graph(namespace, query)
 print("Query Response:", query_response)
 
-# Include the triples in the return 
+# Include the triples in the return
 query = "Who is Harry friends with?"
 namespace = "harry-potter"
 schema_query_response = client.graph.query_graph(namespace, query, include_triples = True)
 print("Query Response:", query_response)
 
-# Include the chunk context in the return 
+# Include the chunk context in the return
 query = "Who is Harry friends with?"
 namespace = "harry-potter"
 schema_query_response = client.graph.query_graph(namespace, query, include_chunks = True)

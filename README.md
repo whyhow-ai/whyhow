@@ -82,7 +82,7 @@ print(documents_response)
 
 ## Create a graph
 
-You can create a graph in two different ways. First, you can create a graph using a user-defined schema, giving you complete control over the types of entities and relationships that are extracted and used to build the graph. Or, you can create a graph using a set of seed questions. In this case, WhyHow will automatically extract entities and relationships that are most applicable to the things you want to know, and construct a graph from these concepts.
+You can create a graph in three different ways. First, you can create a graph using a user-defined schema, giving you complete control over the types of entities and relationships that are extracted and used to build the graph. You can also create a graph using a set of seed questions. In this case, WhyHow will automatically extract entities and relationships that are most applicable to the things you want to know, and construct a graph from these concepts. Or, you can fully deterministically create a graph from structured context in the form of a CSV.
 
 Create graph with **schema** if...
 
@@ -94,6 +94,11 @@ Create graph with **seed questions** if...
 
 1. You are unsure as to which relationships and patterns you'd like to build into your graph.
 2. You want to build your graph with only the most semantically similar raw data.
+
+Create graph with **csv** if...
+
+1. You alrady know the structure of your data.
+2. You already have data stored in a table format.
 
 ### Create a graph with schema
 
@@ -170,17 +175,37 @@ print(create_graph_response)
 
 ```
 
-## Query a graph
+### Create a graph with a csv
 
-Query your graph using natural language. Using your natural language query, we automatically construct a Cypher query to run against the graph stored in your Neo4j instance.
+Provide a CSV and a schema (or automatically generate one using the `generate_schema` method) to create a graph. WhyHow will automatically extract entities and relationships from your CSV headers and data.
 
 ```shell
 
-query = "What does Harry wear?"
+namespace = "specialists"
+documents = ["../examples/assets/specialists.csv"]
+schema_file = "../examples/assets/specialists.json"
 
-query_response = client.graph.query_graph(namespace, query)
-print(query_response)
-# {answer: "Harry wears a cloak, glasses, robe, and Dudley's old clothes.", cypher_query: "MATCH (:Entity {name: "Harry"})-[:WEARS]->(clothing:Entity)\nRETURN clothing;"}
+# Automatically generate a schema
+schema = client.graph.generate_schema(documents=documents)
+
+# Create a graph from a CSV and the schema you bring/build
+csv_graph = client.graph.create_graph_from_csv(
+    namespace=namespace, schema_file=schema_file
+)
+
+# Query the graph created from csv using specific entities and relations
+query = "Who speaks English and live in Houston?"
+entities = ["English","Houston"]
+relations = ["SPEAKS","LIVE_IN"]
+
+specific_query_response = client.graph.query_graph_specific(
+    namespace=namespace,
+    query=query,
+    entities=entities,
+    relations=relations,
+    include_triples=False,
+    include_chunks=False,
+)
 
 ```
 

@@ -1,0 +1,101 @@
+Name,Gender,Specialization,Subspecialties,Qualifications,Years of Experience,Hospital Affiliation,Department,City,State,Availability,Language 1,Language 2,Language 3,Consultation Fees,Patient Ratings,Insurance Accepted,
+Allison Mcmillan,Female,Pediatrics,Sports Medicine,DO,11,Barnes-Wise,Outpatient,New York,NY,"Tuesday, 17:00 - 20:00",English,,,$406.00,3.1,PrimeHealth Assurance
+Mr. Steven Brooks,Male,Gastroenterology,Pediatric,MD,7,Wright-Kim,Outpatient,Los Angeles,CA,"Tuesday, 16:00 - 20:00",English,,,$184.00,1.3,HarmonyHealth Plans
+Ann Austin,Female,Psychiatry,Geriatric,MS,23,Lucero PLC,Emergency,Phoenix,AZ,"Tuesday, 9:00 - 18:00",English,French,,$206.00,3.7,GuardianHealth Solutions
+Julie Johnson,Female,Dermatology,Sleep Medicine,MS,32,Gill PLC,Outpatient,Houston,TX,"Monday, 8:00 - 18:00",English,,,$273.00,2.8,VitalityCare Health
+Christopher Brown,Male,Endocrinology,Addiction Medicine,MD,25,Murphy-Montgomery,Radiology,Chicago,IL,"Thursday, 17:00 - 18:00",English,Hindi,Spanish,$198.00,2.8,OptimumCare Health
+Christopher Hamilton,Male,Cardiology,Sleep Medicine,MS,31,Jones PLC,Outpatient,Los Angeles,CA,"Wednesday, 11:00 - 18:00",English,Hindi,Mandarin,$350.00,2.7,LifeShield Insurance
+Mark Ward,Male,Pediatrics,Addiction Medicine,MD,25,Meza-Preston,General Medicine,New York,NY,"Wednesday, 15:00 - 18:00",English,Hindi,,$204.00,2.3,EverCare Insurance
+Julie Carey,Female,Dermatology,Sleep Medicine,MD,11,Griffin-Herring,Outpatient,Houston,TX,"Monday, 10:00 - 18:00",English,Spanish,Hindi,$438.00,3.8,GuardianHealth Solutions
+Douglas Wells,Male,Dermatology,Pediatric,DO,8,Gregory-Gibbs,Outpatient,Phoenix,AZ,"Monday, 11:00 - 19:00",English,French,,$454.00,3.6,LifeShield Insurance
+Richard Braun,Male,Dermatology,Sports Medicine,MD,28,Forbes-Walsh,Surgery,Houston,TX,"Tuesday, 14:00 - 19:00",English,Hindi,,$496.00,2.3,HealthFirst Coverage
+Stephen Williamson,Male,Neurology,Addiction Medicine,MBBS,37,"Sherman, Mooney and Weber",Radiology,Houston,TX,"Monday, 9:00 - 20:00",English,,,$333.00,1.7,PremierWell Insurance
+Michael White,Male,Pediatrics,Addiction Medicine,MD,16,"Sanchez, Roy and Wright",Radiology,Houston,TX,"Friday, 15:00 - 20:00",English,Hindi,Spanish,$205.00,4.7,LifeWell Coverage
+Taylor Sanford,Female,Dermatology,Sleep Medicine,MBBS,11,Adams-Brown,Outpatient,Phoenix,AZ,"Wednesday, 16:00 - 20:00",English,Mandarin,French,$152.00,1.1,HarmonyHealth Plans
+Brittney Reyes,Female,Gastroenterology,Sleep Medicine,MD,29,Jennings Group,Surgery,Los Angeles,CA,"Tuesday, 14:00 - 18:00",English,,,$230.00,4.9,EverCare Insurance
+Eric Williams,Male,Oncology,Pediatric,MD,27,"Carr, Bush and Bush",General Medicine,Phoenix,AZ,"Thursday, 9:00 - 18:00",English,Hindi,,$170.00,3.5,HealthFirst Coverage
+Robert Ramos,Male,Neurology,Sports Medicine,DO,14,Mendoza and Sons,General Medicine,Los Angeles,CA,"Friday, 17:00 - 19:00",English,Hindi,,$349.00,1.9,VitalityCare Health
+Michelle Chen,Female,Dermatology,Addiction Medicine,MD,15,"Lee, Burke and Rivers",Emergency,Houston,TX,"Friday, 17:00 - 18:00",English,Spanish,Mandarin,$474.00,1.7,UnityWell Insurance
+Taylor Baker,Male,Endocrinology,Geriatric,MS,27,Li-Nelson,Emergency,Houston,TX,"Thursday, 12:00 - 19:00",English,,,$298.00,1.7,SuperiorHealth Plans
+Brendan Olson,Male,Dermatology,Geriatric,MS,5,"Torres, Mejia and Moore",Radiology,Los Angeles,CA,"Friday, 17:00 - 19:00",English,Mandarin,,$238.00,2.4,HealthGuard Assurance
+David Meadows,Male,Neurology,Addiction Medicine,MD,25,Tran Ltd,General Medicine,Los Angeles,CA,"Wednesday, 8:00 - 19:00",English,,,$401.00,2.7,BrightWell Insurance
+Matthew Gentry,Male,Endocrinology,Pediatric,MD,29,Rosario Ltd,Radiology,Houston,TX,"Monday, 15:00 - 18:00",English,,,$452.00,2,SuperiorHealth Plans
+Sara Jimenez,Female,Endocrinology,Pediatric,DO,28,Edwards LLC,Radiology,Los Angeles,CA,"Thursday, 17:00 - 20:00",English,,,$115.00,4.2,TrueHealth Insurance
+Rebekah Sparks,Female,Urology,Pediatric,MD,30,Jennings-Phillips,Surgery,Houston,TX,"Friday, 13:00 - 18:00",English,,,$371.00,2.4,PureHealth Insurance
+Paul Miranda,Male,Psychiatry,Sports Medicine,MD,19,"Reid, Figueroa and Thomas",Emergency,Houston,TX,"Monday, 15:00 - 20:00",English,Mandarin,Spanish,$117.00,1.4,SuperiorHealth Plans,
+Kendra Clark,Female,Orthopedics,Pediatric,DO,14,Stevens Inc,General Medicine,Los Angeles,CA,"Monday, 15:00 - 20:00",English,French,,$196.00,2.6,HarmonyHealth Plans,
+Christina Bell,Female,Psychiatry,Pediatric,DO,38,"Anthony, Martinez and White",Outpatient,Houston,TX,"Friday, 9:00 - 20:00",English,Hindi,Spanish,$291.00,1.8,AdvantageCare Health,
+Corey Moore,Male,Pediatrics,Sleep Medicine,MBBS,14,Leonard-Brown,Emergency,New York,NY,"Wednesday, 14:00 - 18:00",English,Spanish,Hindi,$325.00,1.1,TrueHealth Insurance,
+Sean Wolf,Male,Dermatology,Geriatric,DO,25,Hicks PLC,Outpatient,Chicago,IL,"Wednesday, 16:00 - 19:00",English,Spanish,French,$425.00,3.3,OptimumCare Health,
+Holly Martinez,Female,Pediatrics,Geriatric,DO,9,Solis Group,Outpatient,Phoenix,AZ,"Tuesday, 13:00 - 20:00",English,French,,$404.00,4.1,HealthFirst Coverage,
+Karen Mcintyre,Female,Oncology,Addiction Medicine,MD,13,"Murphy, Cochran and Bush",Radiology,Los Angeles,CA,"Monday, 12:00 - 18:00",English,,,$367.00,3.8,PureHealth Insurance,
+James Perez,Male,Pediatrics,Sports Medicine,DO,31,Peterson Ltd,Radiology,Chicago,IL,"Thursday, 17:00 - 19:00",English,Hindi,,$354.00,4.8,AdvantageCare Health,
+Krystal Luna,Female,Gastroenterology,Sports Medicine,MS,20,Hicks-Santana,Radiology,Chicago,IL,"Friday, 11:00 - 20:00",English,,,$341.00,2.3,HarmonyHealth Plans,
+Melissa Gilbert,Female,Gastroenterology,Geriatric,DO,24,Stein-Davis,Outpatient,Los Angeles,CA,"Thursday, 11:00 - 18:00",English,Spanish,Hindi,$213.00,2.9,GuardianHealth Solutions,
+Jesse Levine,Male,Orthopedics,Sleep Medicine,MS,17,Jordan LLC,Emergency,Phoenix,AZ,"Tuesday, 13:00 - 19:00",English,,,$204.00,2.3,PremierWell Insurance,
+Alex Hill,Male,Cardiology,Sports Medicine,MBBS,15,Ashley PLC,Emergency,Phoenix,AZ,"Thursday, 16:00 - 19:00",English,,,$187.00,3.3,HealthPlus Coverage,
+Heather Miller,Female,Endocrinology,Addiction Medicine,MS,32,"Stout, Morales and Clark",General Medicine,New York,NY,"Friday, 8:00 - 20:00",English,,,$352.00,3.2,PremierWell Insurance,
+Mathew Bauer,Male,Pediatrics,Sports Medicine,MD,17,Berry-Roberson,Surgery,Chicago,IL,"Thursday, 13:00 - 19:00",English,Hindi,,$350.00,3.2,HealthPlus Coverage,
+Amber Lee,Female,Endocrinology,Sports Medicine,MS,18,Clay-Wood,Surgery,Houston,TX,"Wednesday, 9:00 - 20:00",English,French,,$275.00,1.2,EliteCare Insurers,
+Mallory Ward,Female,Dermatology,Pediatric,MD,13,Nguyen-Burns,General Medicine,New York,NY,"Wednesday, 13:00 - 18:00",English,,,$276.00,4.3,TrueHealth Insurance,
+James Lyons,Male,Pediatrics,Sports Medicine,MD,9,Smith-Huang,General Medicine,New York,NY,"Thursday, 11:00 - 18:00",English,Mandarin,Spanish,$242.00,3.9,PrimeHealth Assurance,
+Sheryl Walker MD,Female,Psychiatry,Geriatric,MD,34,Thornton-Rivera,Radiology,Houston,TX,"Tuesday, 10:00 - 19:00",English,Hindi,Spanish,$279.00,4,PremierWell Insurance,
+Jessica Boone,Female,Urology,Geriatric,MBBS,15,"Bradshaw, Cooley and Robinson",General Medicine,Los Angeles,CA,"Friday, 14:00 - 20:00",English,French,Hindi,$447.00,2.6,EverCare Insurance,
+Melissa Robbins,Female,Urology,Sports Medicine,MBBS,28,"Stuart, Craig and Mcguire",Radiology,New York,NY,"Tuesday, 8:00 - 18:00",English,Mandarin,,$459.00,3.2,LifeShield Insurance,
+Timothy Wheeler,Male,Pediatrics,Sleep Medicine,MBBS,30,Griffin PLC,Outpatient,New York,NY,"Thursday, 13:00 - 19:00",English,Hindi,,$274.00,3.8,EverCare Insurance,
+Casey Scott,Male,Psychiatry,Sleep Medicine,DO,6,Griffith Inc,Outpatient,Chicago,IL,"Friday, 8:00 - 20:00",English,Spanish,,$236.00,3.4,PremierWell Insurance,
+Teresa Powers,Female,Urology,Geriatric,DO,19,"Jefferson, Weiss and Foley",Radiology,Phoenix,AZ,"Friday, 16:00 - 20:00",English,French,Hindi,$208.00,3.7,GuardianHealth Solutions,
+Kathryn Luna,Female,Cardiology,Sports Medicine,MD,12,"Hughes, Reyes and Flores",Surgery,New York,NY,"Monday, 11:00 - 18:00",English,French,,$455.00,3.6,HealthGuard Assurance,
+Sara Jones,Female,Dermatology,Addiction Medicine,MD,12,"Pham, Anderson and Bell",Outpatient,New York,NY,"Wednesday, 8:00 - 20:00",English,Hindi,,$146.00,1.7,LifeWell Coverage,
+Susan Wilson,Female,Endocrinology,Geriatric,MS,12,Patrick Ltd,Emergency,Chicago,IL,"Tuesday, 15:00 - 19:00",English,Spanish,,$309.00,1.3,LifeWell Coverage,
+Brandon Jones,Male,Pediatrics,Addiction Medicine,MBBS,17,"Delacruz, Scott and Collins",Emergency,Los Angeles,CA,"Monday, 17:00 - 19:00",English,,,$246.00,2.6,SecureHealth Plans,
+Nicole Hall,Female,Gastroenterology,Sleep Medicine,MBBS,34,Robinson-Patel,Surgery,Chicago,IL,"Tuesday, 17:00 - 20:00",English,Hindi,Spanish,$195.00,4.5,BrightWell Insurance,
+Kristin Stephenson,Female,Endocrinology,Sleep Medicine,MS,26,Sandoval-Merritt,Emergency,Chicago,IL,"Monday, 8:00 - 19:00",English,,,$426.00,1.2,EliteCare Insurers,
+Deborah Mclaughlin,Female,Dermatology,Geriatric,MBBS,20,Crawford-Mccann,General Medicine,Phoenix,AZ,"Tuesday, 14:00 - 18:00",English,French,Spanish,$496.00,1.6,BrightWell Insurance,
+William Barron,Male,Dermatology,Sleep Medicine,MD,20,Olson Ltd,Emergency,Chicago,IL,"Wednesday, 13:00 - 20:00",English,Mandarin,,$477.00,3.7,HealthGuard Assurance,
+Jonathon Schwartz,Male,Cardiology,Pediatric,MBBS,29,Flores-Walsh,General Medicine,New York,NY,"Thursday, 16:00 - 18:00",English,French,Spanish,$219.00,1.8,HealthNet Solutions,
+Daniel Jenkins,Male,Psychiatry,Pediatric,MD,37,"Phillips, Mahoney and Levy",Outpatient,Chicago,IL,"Wednesday, 9:00 - 20:00",English,,,$468.00,3.4,HealthPlus Coverage,
+Sean Holland,Male,Endocrinology,Addiction Medicine,DO,7,"Rodgers, Patel and Powell",Outpatient,Houston,TX,"Tuesday, 12:00 - 19:00",English,Spanish,French,$142.00,4.9,PrimeHealth Assurance,
+Angela Whitaker,Female,Gastroenterology,Pediatric,MBBS,10,Carroll Ltd,Outpatient,Los Angeles,CA,"Friday, 9:00 - 19:00",English,Mandarin,,$465.00,4.1,EliteCare Insurers,
+Melissa Williams,Female,Gastroenterology,Addiction Medicine,MBBS,37,Campbell Group,Emergency,Los Angeles,CA,"Thursday, 13:00 - 18:00",English,French,Spanish,$357.00,2.3,VitalityCare Health,
+Denise Sheppard,Female,Psychiatry,Pediatric,MD,9,Norman and Sons,Outpatient,Los Angeles,CA,"Friday, 15:00 - 20:00",English,Mandarin,,$441.00,3.5,HealthGuard Assurance,
+Seth Ford,Male,Gastroenterology,Addiction Medicine,MS,36,"Carter, Torres and Bates",General Medicine,New York,NY,"Monday, 13:00 - 19:00",English,,,$348.00,3.3,AdvantageCare Health,
+Mary Young,Female,Pediatrics,Sleep Medicine,MD,35,"Garcia, Good and Ortiz",Emergency,Chicago,IL,"Thursday, 10:00 - 18:00",English,,,$167.00,2.3,SuperiorHealth Plans,
+Bryan Horne,Male,Psychiatry,Sports Medicine,MD,25,Acevedo-Taylor,General Medicine,Chicago,IL,"Friday, 11:00 - 19:00",English,,,$497.00,4.3,VitalityCare Health,
+Linda Vasquez,Female,Orthopedics,Addiction Medicine,MD,10,Colon PLC,Outpatient,Los Angeles,CA,"Thursday, 14:00 - 19:00",English,,,$252.00,3.8,LifeShield Insurance,
+Troy Booth,Male,Gastroenterology,Geriatric,MD,12,Thompson-Austin,Surgery,Phoenix,AZ,"Wednesday, 8:00 - 18:00",English,Spanish,,$353.00,4.3,LifeWell Coverage,
+Samantha Miller,Female,Cardiology,Addiction Medicine,DO,30,Yu-Weber,Outpatient,Chicago,IL,"Tuesday, 9:00 - 19:00",English,French,Mandarin,$164.00,4.3,HealthNet Solutions,
+Carolyn Berg,Female,Endocrinology,Addiction Medicine,MS,31,"Pena, Carter and Bowen",Surgery,Chicago,IL,"Wednesday, 9:00 - 19:00",English,Mandarin,Spanish,$331.00,5,EverCare Insurance,
+Kristen Bailey,Female,Oncology,Sports Medicine,MBBS,18,Parker-Young,General Medicine,Los Angeles,CA,"Tuesday, 8:00 - 18:00",English,,,$199.00,3.5,OptimumCare Health,
+Shelby Jackson,Female,Pediatrics,Addiction Medicine,MD,22,Webb Ltd,Emergency,Phoenix,AZ,"Thursday, 11:00 - 19:00",English,Spanish,,$331.00,3.9,TrueHealth Insurance,
+Edward Wright,Male,Orthopedics,Sports Medicine,MBBS,25,"Martin, Johnson and Kidd",General Medicine,New York,NY,"Friday, 15:00 - 20:00",English,Spanish,Mandarin,$212.00,3.9,SuperiorHealth Plans,
+Tara Webb,Female,Pediatrics,Sports Medicine,DO,29,Wright-Martinez,Radiology,Los Angeles,CA,"Thursday, 13:00 - 20:00",English,,,$471.00,2,PremierWell Insurance,
+Connie Rogers,Female,Urology,Pediatric,DO,11,Haas Ltd,Radiology,Phoenix,AZ,"Wednesday, 8:00 - 19:00",English,Hindi,,$496.00,2.5,HealthFirst Coverage,
+Jason Acosta,Male,Orthopedics,Geriatric,MS,16,"Price, Thomas and Welch",General Medicine,Los Angeles,CA,"Monday, 17:00 - 18:00",English,Spanish,,$429.00,3.3,OptimumCare Health,
+Danielle Jackson,Female,Gastroenterology,Addiction Medicine,MD,10,"Graham, Martinez and Gonzales",Surgery,Houston,TX,"Monday, 16:00 - 20:00",English,Mandarin,Hindi,$433.00,3.7,GuardianHealth Solutions,
+Amanda Miller DVM,Female,Dermatology,Sleep Medicine,MBBS,32,Garcia Ltd,Outpatient,Phoenix,AZ,"Thursday, 8:00 - 20:00",English,Hindi,Spanish,$231.00,3.5,PremierWell Insurance,
+Mr. Christopher Miller MD,Male,Psychiatry,Sports Medicine,DO,21,Jackson-Cummings,Emergency,Houston,TX,"Wednesday, 17:00 - 18:00",English,Mandarin,,$451.00,2.5,PrimeHealth Assurance,
+Kevin Mason,Male,Neurology,Pediatric,DO,32,Brown-Miller,Outpatient,Phoenix,AZ,"Wednesday, 15:00 - 18:00",English,Mandarin,,$261.00,4.3,TotalCare Coverage,
+Rebecca Simpson,Female,Neurology,Sports Medicine,MBBS,28,"Baldwin, Harris and Spencer",Surgery,Houston,TX,"Tuesday, 15:00 - 19:00",English,Spanish,,$129.00,4.3,UnityWell Insurance,
+Thomas Kelly,Male,Oncology,Addiction Medicine,MBBS,36,Howell LLC,Radiology,Los Angeles,CA,"Friday, 8:00 - 20:00",English,Spanish,Hindi,$160.00,2.6,GuardianHealth Solutions,
+Andrew Thomas,Male,Gastroenterology,Pediatric,MBBS,8,"Williams, Cox and Taylor",Emergency,Chicago,IL,"Thursday, 10:00 - 19:00",English,Hindi,French,$330.00,1.3,GuardianHealth Solutions,
+Susan Rodriguez,Female,Gastroenterology,Addiction Medicine,MS,7,Kane-Phillips,Emergency,Los Angeles,CA,"Friday, 10:00 - 20:00",English,Mandarin,Spanish,$277.00,4.2,PureHealth Insurance,
+Angela Payne,Female,Gastroenterology,Sleep Medicine,MD,38,Evans LLC,Emergency,Los Angeles,CA,"Wednesday, 17:00 - 18:00",English,French,,$419.00,1.5,HealthNet Solutions,
+Kristie Potter,Female,Endocrinology,Geriatric,MD,25,Murphy LLC,Emergency,New York,NY,"Thursday, 12:00 - 18:00",English,Mandarin,,$235.00,4.7,HarmonyHealth Plans,
+Sarah Hudson,Female,Oncology,Addiction Medicine,MBBS,20,"Porter, Barrera and Snyder",Surgery,Phoenix,AZ,"Thursday, 12:00 - 19:00",English,,,$403.00,4.8,TrueHealth Insurance,
+Sue Whitaker,Female,Neurology,Addiction Medicine,MD,6,Kennedy-Newman,General Medicine,Chicago,IL,"Wednesday, 12:00 - 20:00",English,,,$440.00,1.5,SecureHealth Plans,
+Cody Chavez,Male,Neurology,Pediatric,DO,35,Moore-James,Surgery,New York,NY,"Tuesday, 12:00 - 20:00",English,Spanish,,$112.00,4.9,HarmonyHealth Plans,
+Thomas Smith,Male,Orthopedics,Geriatric,MD,31,Browning-Smith,General Medicine,Phoenix,AZ,"Tuesday, 12:00 - 20:00",English,Mandarin,,$104.00,2.1,LifeShield Insurance,
+Samuel Moreno,Male,Psychiatry,Sleep Medicine,DO,29,"Velasquez, Zuniga and Reynolds",Emergency,Houston,TX,"Thursday, 11:00 - 19:00",English,Spanish,Mandarin,$324.00,2.2,LifeWell Coverage,
+Elizabeth Bright,Female,Orthopedics,Sleep Medicine,MD,35,"Webb, Wong and Nichols",Emergency,New York,NY,"Thursday, 11:00 - 20:00",English,,,$102.00,3,VitalityCare Health,
+William Williams,Male,Pediatrics,Sports Medicine,MBBS,21,Rangel-Ferrell,Emergency,Phoenix,AZ,"Monday, 11:00 - 20:00",English,Hindi,French,$289.00,2.8,TotalCare Coverage,
+Christopher Huff,Male,Pediatrics,Addiction Medicine,MD,37,Smith and Sons,Emergency,Houston,TX,"Thursday, 17:00 - 18:00",English,Hindi,,$117.00,3.5,HealthFirst Coverage,
+Richard Foster,Male,Cardiology,Sleep Medicine,DO,39,"Rodriguez, Thompson and Marquez",Surgery,Phoenix,AZ,"Monday, 12:00 - 19:00",English,French,Hindi,$479.00,1.2,UnityWell Insurance,
+Sharon Gutierrez,Female,Urology,Addiction Medicine,MS,9,"Foster, Martin and Horn",General Medicine,Houston,TX,"Friday, 13:00 - 19:00",English,,,$189.00,1.4,EverCare Insurance,
+Melissa Martin,Female,Dermatology,Sleep Medicine,MS,10,Walsh-Williams,General Medicine,Houston,TX,"Thursday, 15:00 - 19:00",English,French,,$244.00,4,GuardianHealth Solutions,
+Dean Curtis,Male,Dermatology,Pediatric,MS,14,"Soto, Rodriguez and Stanley",Surgery,Los Angeles,CA,"Thursday, 16:00 - 18:00",English,,,$121.00,2.4,EverCare Insurance,
+Jeremy King,Male,Pediatrics,Sleep Medicine,DO,17,Lewis-Reese,Outpatient,Phoenix,AZ,"Friday, 9:00 - 20:00",English,Mandarin,,$195.00,4,HealthGuard Assurance,
+Paul Fisher,Male,Orthopedics,Geriatric,MBBS,31,"King, Adams and Mccormick",General Medicine,Chicago,IL,"Thursday, 14:00 - 19:00",English,Spanish,French,$458.00,2.9,HealthGuard Assurance,
+Lori Vaughan,Female,Pediatrics,Sports Medicine,MD,24,Hunter-Chavez,Surgery,Houston,TX,"Tuesday, 12:00 - 19:00",English,Mandarin,Spanish,$472.00,2.8,UnityWell Insurance,
+Rhonda Evans,Female,Neurology,Sports Medicine,DO,29,Weaver-Clark,Surgery,Phoenix,AZ,"Wednesday, 12:00 - 18:00",English,Spanish,,$296.00,2.2,ProHealth Assurance,
+Jeremy Henson,Male,Oncology,Sleep Medicine,MD,39,Morrison-Ross,General Medicine,Chicago,IL,"Tuesday, 13:00 - 20:00",English,Mandarin,,$333.00,4.1,HealthFirst Coverage,

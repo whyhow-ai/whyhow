@@ -142,6 +142,8 @@ class SchemaEntity(BaseModel):
     """Schema Entity model."""
 
     name: str
+    property_columns: Optional[List[str]] = None
+    set_type_as: Optional[str] = None
     description: str
 
 

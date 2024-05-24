@@ -1,0 +1,104 @@
+{
+  "entities": [
+    {
+      "name": "Name",
+      "set_type_as": "",
+      "property_columns": [
+        "Gender",
+        "Qualifications",
+        "Years of Experience",
+        "Availability",
+        "Consultation Fees",
+        "Patient Ratings",
+        "Insurance Accepted"
+      ],
+      "description": ""
+    },
+    {
+      "name": "Specialization",
+      "set_type_as": "Specialty",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "Subspecialties",
+      "set_type_as": "Specialty",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "Hospital Affiliation",
+      "set_type_as": "Hospital",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "City",
+      "set_type_as": "",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "Language 1",
+      "set_type_as": "Language",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "Language 2",
+      "set_type_as": "Language",
+      "property_columns": [],
+      "description": ""
+    },
+    {
+      "name": "Language 3",
+      "set_type_as": "Language",
+      "property_columns": [],
+      "description": ""
+    }
+  ],
+  "patterns": [
+    {
+      "head": "Name",
+      "relation": "specializes_in",
+      "tail": "Specialization",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "specializes_in",
+      "tail": "Subspecialties",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "works_at",
+      "tail": "Hospital Affiliation",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "live_in",
+      "tail": "City",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "speaks",
+      "tail": "Language 1",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "speaks",
+      "tail": "Language 2",
+      "description": ""
+    },
+    {
+      "head": "Name",
+      "relation": "speaks",
+      "tail": "Language 3",
+      "description": ""
+    }
+  ]
+}

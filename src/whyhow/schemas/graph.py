@@ -87,3 +87,21 @@ class QueryGraphReturn(BaseReturn):
     answer: str
     triples: list[QueryGraphTripleResponse] = []
     chunks: list[QueryGraphChunkResponse] = []
+
+
+class SpecificQueryGraphRequest(BaseRequest):
+    """Schema for the request body of the specific query graph endpoint."""
+
+    query: str
+    entities: list[str] = []
+    relations: list[str] = []
+    include_triples: bool = False
+    include_chunks: bool = False
+
+
+class SpecificQueryGraphResponse(BaseResponse):
+    """Schema for the response body of the query graph endpoint."""
+
+    namespace: str
+    answer: str
+    triples: list[dict[str, str]] = []
