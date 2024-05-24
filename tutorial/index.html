@@ -334,6 +334,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#option-3-create-the-knowledge-graph-from-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 3 - Create the Knowledge Graph from CSV
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#querying-the-knowledge-graph" class="md-nav__link">
     <span class="md-ellipsis">
       Querying the Knowledge Graph
@@ -436,6 +445,15 @@
   <a href="#option-2-create-the-knowledge-graph-from-seed-questions" class="md-nav__link">
     <span class="md-ellipsis">
       Option 2 - Create the Knowledge Graph from seed questions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-3-create-the-knowledge-graph-from-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 3 - Create the Knowledge Graph from CSV
     </span>
   </a>
   
@@ -573,31 +591,68 @@
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">extracted_graph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.create_graph<span class="o">(</span>namespace,<span class="w"> </span>questions<span class="o">)</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>print<span class="o">(</span><span class="s2">&quot;Extracted Graph:&quot;</span>,<span class="w"> </span>extracted_graph<span class="o">)</span>
 </span></code></pre></div>
+<h2 id="option-3-create-the-knowledge-graph-from-csv">Option 3 - Create the Knowledge Graph from CSV<a class="headerlink" href="#option-3-create-the-knowledge-graph-from-csv" title="Permanent link">&para;</a></h2>
+<p>WhyHow also supports creating a graph from structured data in the form a CSV file. Note, right now we only support creating a graph from one CSV file per namespace. If you upload more than one file, the first will be overwritten.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;specialists&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">documents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;../examples/assets/specialists.csv&quot;</span><span class="o">]</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">schema_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../examples/assets/specialists.json&quot;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Automatically generate a schema</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nv">schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.generate_schema<span class="o">(</span><span class="nv">documents</span><span class="o">=</span>documents<span class="o">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>print<span class="o">(</span>schema<span class="o">)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Add documents to your namespace</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nv">documents_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.add_documents<span class="o">(</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nv">namespace</span><span class="o">=</span>namespace,<span class="w"> </span><span class="nv">documents</span><span class="o">=</span>documents<span class="o">)</span>
+</span></code></pre></div>
+<p>Use the <code>create_graph_from_csv</code> function to create a graph from the uploaded CSV file. The function will automatically use the schema provided to generate the graph</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">csv_graph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.create_graph_from_csv<span class="o">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nv">namespace</span><span class="o">=</span>namespace,<span class="w"> </span><span class="nv">schema_file</span><span class="o">=</span>schema_file
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>print<span class="o">(</span>csv_graph<span class="o">)</span>
+</span></code></pre></div>
 <h2 id="querying-the-knowledge-graph">Querying the Knowledge Graph<a class="headerlink" href="#querying-the-knowledge-graph" title="Permanent link">&para;</a></h2>
 <p>With the graphs created, you can now query them to find specific information:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Query graph created from schema</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query<span class="o">)</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Query graph created from seed questions</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who wears a Cloak?&quot;</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter-2&quot;</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nv">seed_questions_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query<span class="o">)</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># Include the triples in the return </span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query,<span class="w"> </span><span class="nv">include_triples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True<span class="o">)</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c1"># Include the chunk context in the return </span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query,<span class="w"> </span><span class="nv">include_chunks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True<span class="o">)</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Query the graph created from csv using specific entities and relations</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who speaks English and live in Houston?&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nv">entities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;English&quot;</span>,<span class="s2">&quot;Houston&quot;</span><span class="o">]</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nv">relations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;SPEAKS&quot;</span>,<span class="s2">&quot;LIVE_IN&quot;</span><span class="o">]</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nv">specific_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph_specific<span class="o">(</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nv">namespace</span><span class="o">=</span>namespace,
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nv">query</span><span class="o">=</span>query,
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nv">entities</span><span class="o">=</span>entities,
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nv">relations</span><span class="o">=</span>relations,
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="nv">include_triples</span><span class="o">=</span>False,
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="nv">include_chunks</span><span class="o">=</span>False,
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="o">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>print<span class="o">(</span><span class="s2">&quot;Specific Query Response:&quot;</span>,<span class="w"> </span>specific_query_response<span class="o">)</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="c1"># Query graph created from schema</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query<span class="o">)</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="c1"># Query graph created from seed questions</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who wears a Cloak?&quot;</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter-2&quot;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="nv">seed_questions_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query<span class="o">)</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="c1"># Include the triples in the return</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query,<span class="w"> </span><span class="nv">include_triples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True<span class="o">)</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="c1"># Include the chunk context in the return</span>
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="nv">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Who is Harry friends with?&quot;</span>
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="nv">namespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;harry-potter&quot;</span>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="nv">schema_query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.graph.query_graph<span class="o">(</span>namespace,<span class="w"> </span>query,<span class="w"> </span><span class="nv">include_chunks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True<span class="o">)</span>
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>print<span class="o">(</span><span class="s2">&quot;Query Response:&quot;</span>,<span class="w"> </span>query_response<span class="o">)</span>
 </span></code></pre></div>
 
 
