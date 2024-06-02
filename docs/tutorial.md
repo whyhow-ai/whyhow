@@ -162,6 +162,14 @@ documents_response = client.graph.add_documents(
 
 ```
 
+You can automatically generate a schema from a CSV document using the `generate_schema` method of the `GraphAPI` class.
+
+```python
+csv_documents = ["path/to/your/csv/file.csv"]
+generated_schema = client.graph.generate_schema(documents=csv_documents)
+print(generated_schema)
+```
+
 Use the `create_graph_from_csv` function to create a graph from the uploaded CSV file. The function will automatically use the schema provided to generate the graph
 
 ```shell

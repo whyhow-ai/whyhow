@@ -2,5 +2,5 @@
 
 from whyhow.client import AsyncWhyHow, WhyHow
 
-__version__ = "v0.0.6"
+__version__ = "v0.0.7"
 __all__ = ["AsyncWhyHow", "WhyHow"]

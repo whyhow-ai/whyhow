@@ -62,14 +62,14 @@ class GraphAPI(APIBase):
         ):
             if len(document_paths) > 1:
                 raise ValueError(
-                    "Too many documents, please limit CSV uploads "
-                    "to 1 file during the beta."
+                    "Too many documents"
+                    "Please limit CSV uploads to 1 file during the beta."
                 )
 
         if len(document_paths) > 3:
             raise ValueError(
-                "Too many documents, please limit PDF uploads "
-                "to 3 files during the beta."
+                "Too many documents"
+                "Please limit PDF uploads to 3 files during the beta."
             )
 
         files = [
@@ -105,8 +105,8 @@ class GraphAPI(APIBase):
             for document_path in document_paths
         ):
             raise ValueError(
-                "Only CSVs are supported for "
-                "local schema generation right now."
+                "Only CSVs are supported"
+                "for local schema generation right now."
             )
 
         if any(
@@ -114,7 +114,7 @@ class GraphAPI(APIBase):
         ):
             if len(document_paths) > 1:
                 raise ValueError(
-                    "Too many documents, "
+                    "Too many documents"
                     "can only generate schema for one document at a time."
                 )
         entities = []
@@ -126,8 +126,9 @@ class GraphAPI(APIBase):
                 for i in range(len(row) - 1):
                     _pattern = {
                         "head": row[0],
-                        "relation":
-                            f"has_{row[i+1].lower().replace(' ', '_')}",
+                        "relation": (
+                            f"has_{row[i+1].lower().replace(' ', '_')}"
+                        ),
                         "tail": row[i + 1],
                         "description": "",
                     }
@@ -224,8 +225,9 @@ class GraphAPI(APIBase):
                 for property in entity["property_columns"]:
                     if property.lower() in ["name", "namespace"]:
                         raise ValueError(
-                            f"The values 'name' and 'namespace' are not "
-                            f"allowed in property_columns. Found '{property}'."
+                            f"The values 'name' and 'namespace'"
+                            f"are not allowed in property_columns."
+                            f"Found '{property}'."
                         )
 
         schema_model = SchemaModel(**schema_data)

@@ -21,6 +21,19 @@ export NEO4J_USERNAME=<your neo4j username>
 export NEO4J_PASSWORD=<your neo4j password>
 ```
 
+If using Azure OpenAI:
+
+```shell
+pip install whyhow
+
+export AZURE_OPENAI_API_KEY=<your azure openai api key>
+export AZURE_OPENAI_API_VERSION=<your azure openai api version>
+export AZURE_OPENAI_ENDPOINT=<your azure openai api endpoint>
+export PINECONE_API_KEY=<your pinecone api key>
+export NEO4J_URL=<your neo4j url>
+export NEO4J_USERNAME=<your neo4j username>
+export NEO4J_PASSWORD=<your neo4j password>
+```
 ## Install from Github
 
 Alternatively, you can clone the repo and install the package

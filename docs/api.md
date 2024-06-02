@@ -30,6 +30,25 @@ Add documents to the graph.
 
 - `ValueError`: If no documents are provided, not all documents exist, only PDFs are supported, PDFs are too large (limit: 8MB), or too many documents are provided (limit: 3 files during the beta).
 
+### `generate_schema`
+
+```python
+def generate_schema(self, documents: list[str]) -> str
+Generate a schema from a CSV document.
+```
+
+#### Parameters
+
+- `documents` (list[str]): The CSV documents to generate the schema from.
+
+#### Returns
+
+- (str): The generated schema as a JSON string.
+
+#### Raises
+
+- `ValueError`: If no documents are provided, not all documents exist, or the documents are not in CSV format.
+
 ### `create_graph`
 
 ```python
@@ -72,6 +91,27 @@ Create a new graph based on a user-defined schema.
 
 - `ValueError`: If no schema is provided.
 
+### `create_graph_from_csv`
+
+```python
+def create_graph_from_csv(self, namespace: str, schema_file: str) -> str
+```
+
+Create a new graph using a CSV based on a user-defined schema.
+
+#### Parameters
+
+- `namespace` (str): The namespace of the graph to create.
+- `schema_file` (str): The schema file to use to build the graph.
+
+#### Returns
+
+- (str): The response message.
+
+#### Raises
+
+ - `ValueError`: If no schema is provided or if the schema contains invalid property column names.
+
 ### `query_graph`
 
 ```python
@@ -90,6 +130,35 @@ Query the graph.
 #### Returns
 
 - (`QueryGraphReturn`): The answer, triples (optional), and chunks (optional).
+
+### `query_graph_specific`
+
+```python
+def query_graph_specific(
+    self,
+    namespace: str,
+    query: str,
+    entities: list[str] = [],
+    relations: list[str] = [],
+    include_triples: bool = False,
+    include_chunks: bool = False,
+) -> SpecificQueryGraphResponse
+```
+
+Query the graph with specific entities and relations.
+
+### Parameters
+
+- `namespace` (str): The namespace of the graph.
+- `query` (str): The query to run.
+- `entities` (list[str]): The entities to query.
+- `relations` (list[str]): The relations to query.
+- `include_triples` (bool): Whether to include triples in the response.
+- `include_chunks` (bool): Whether to include chunks in the response.
+
+#### Returns
+
+- (SpecificQueryGraphResponse): The namespace, answer, triples, and chunks.
 
 ## Schemas
 

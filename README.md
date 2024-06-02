@@ -25,7 +25,14 @@ You can install the SDK directly from PyPI using pip:
 ```shell
 pip install whyhow
 
+# For OpenAI
 export OPENAI_API_KEY=<your openai api key>
+
+# For Azure OpenAI 
+export AZURE_OPENAI_API_KEY=<your azure openai api key>
+export AZURE_OPENAI_API_VERSION=<your azure openai api version>
+export AZURE_OPENAI_ENDPOINT=<your azure openai api endpoint>
+
 export PINECONE_API_KEY=<your pinecone api key>
 export NEO4J_URL=<your neo4j url>
 export NEO4J_USERNAME=<your neo4j username>
@@ -42,7 +49,14 @@ git clone git@github.com:whyhow-ai/whyhow.git
 cd whyhow
 pip install .
 
+# For OpenAI
 export OPENAI_API_KEY=<your openai api key>
+
+# For Azure OpenAI 
+export AZURE_OPENAI_API_KEY=<your azure openai api key>
+export AZURE_OPENAI_API_VERSION=<your azure openai api version>
+export AZURE_OPENAI_ENDPOINT=<your azure openai api endpoint>
+
 export PINECONE_API_KEY=<your pinecone api key>
 export NEO4J_URL=<your neo4j url>
 export NEO4J_USERNAME=<your neo4j username>
@@ -63,6 +77,22 @@ Import the SDK and initialize the client using your WhyHow API key.
 from whyhow import WhyHow
 
 client = WhyHow(api_key=<your whyhow api key>)
+```
+
+For Azure Open AI: 
+
+```shell
+from whyhow import WhyHow
+
+client = WhyHow(api_key=<your whyhow api key>, use_azure=True)
+```
+
+For an alternative model (for example, healthcare for text extraction): 
+
+```shell
+from whyhow import WhyHow
+
+client = WhyHow(api_key=<your whyhow api key>, model_type='health')
 ```
 
 ## Add documents to namespace
