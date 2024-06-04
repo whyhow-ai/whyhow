@@ -17,7 +17,7 @@ pip install whyhow
 export OPENAI_API_KEY=<your openai api key>
 export PINECONE_API_KEY=<your pinecone api key>
 export NEO4J_URL=<your neo4j url>
-export NEO4J_USERNAME=<your neo4j username>
+export NEO4J_USER=<your neo4j username>
 export NEO4J_PASSWORD=<your neo4j password>
 ```
 
@@ -29,9 +29,11 @@ pip install whyhow
 export AZURE_OPENAI_API_KEY=<your azure openai api key>
 export AZURE_OPENAI_API_VERSION=<your azure openai api version>
 export AZURE_OPENAI_ENDPOINT=<your azure openai api endpoint>
+export AZURE_OPENAI_MODEL_NAME=<your azure model name>
+export AZURE_OPENAI_EMBEDDING_NAME=<your azure embedding name>
 export PINECONE_API_KEY=<your pinecone api key>
 export NEO4J_URL=<your neo4j url>
-export NEO4J_USERNAME=<your neo4j username>
+export NEO4J_USER=<your neo4j username>
 export NEO4J_PASSWORD=<your neo4j password>
 ```
 ## Install from Github
@@ -47,7 +49,7 @@ pip install .
 export OPENAI_API_KEY=<your openai api key>
 export PINECONE_API_KEY=<your pinecone api key>
 export NEO4J_URL=<your neo4j url>
-export NEO4J_USERNAME=<your neo4j username>
+export NEO4J_USER=<your neo4j username>
 export NEO4J_PASSWORD=<your neo4j password>
 ```
 
@@ -56,7 +58,7 @@ export NEO4J_PASSWORD=<your neo4j password>
 If you encounter any issues during installation, please check the following:
 
 - Ensure that you have Python 3.10 or higher installed. You can check your Python version by running `python --version` in your terminal.
-- Make sure that you have correctly set the `OPENAI_API_KEY`, `PINECONE_API_KEY`, `NEO4J_URL`, `NEO4J_USERNAME`, `NEO4J_PASSWORD` environment variables with your respective credentials.
+- Make sure that you have correctly set the `OPENAI_API_KEY`, `PINECONE_API_KEY`, `NEO4J_URL`, `NEO4J_USER`, `NEO4J_PASSWORD` environment variables with your respective credentials.
 - If you are installing from GitHub, ensure that you have cloned the repository correctly and are in the right directory.
 - If you are using a virtual environment, make sure that it is activated before running the installation commands.
 - If you still face problems, please open an issue on the GitHub repository with detailed information about the error and your environment setup.

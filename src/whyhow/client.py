@@ -7,8 +7,6 @@ from httpx import AsyncClient, Auth, Client, Request, Response
 
 from whyhow.apis.graph import GraphAPI
 
-BASE_URL = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com"
-
 
 class APIKeyAuth(Auth):
     """Authorization header with API key."""
@@ -25,12 +23,14 @@ class APIKeyAuth(Auth):
         azure_openai_api_key: Optional[str] = None,
         azure_openai_version: Optional[str] = None,
         azure_openai_endpoint: Optional[str] = None,
-        use_azure: bool = False,
+        azure_openai_model_name: Optional[str] = None,
+        azure_openai_embedding_name: Optional[str] = None,
+        use_azure: Optional[bool] = False,
     ) -> None:
         """Initialize the auth object."""
-        if openai_api_key is not None and azure_openai_api_key is not None:
+        if openai_api_key and azure_openai_api_key:
             raise ValueError(
-                "Only one of openai_api_key or"
+                "Only one of openai_api_key or "
                 "azure_openai_api_key should be set."
             )
 
@@ -44,6 +44,8 @@ class APIKeyAuth(Auth):
         self.azure_openai_api_key = azure_openai_api_key
         self.azure_openai_version = azure_openai_version
         self.azure_openai_endpoint = azure_openai_endpoint
+        self.azure_openai_model_name = azure_openai_model_name
+        self.azure_openai_embedding_name = azure_openai_embedding_name
         self.use_azure = use_azure
 
     def auth_flow(
@@ -64,13 +66,24 @@ class APIKeyAuth(Auth):
                 request.headers["x-azure-openai-endpoint"] = (
                     self.azure_openai_endpoint
                 )
+            if self.azure_openai_model_name is not None:
+                request.headers["x-azure-openai-model-name"] = (
+                    self.azure_openai_model_name
+                )
+            if self.azure_openai_embedding_name is not None:
+                request.headers["x-azure-openai-embedding-name"] = (
+                    self.azure_openai_embedding_name
+                )
+
         request.headers["x-neo4j-user"] = self.neo4j_user
         request.headers["x-neo4j-password"] = self.neo4j_password
         request.headers["x-neo4j-url"] = self.neo4j_url
         request.headers["x-model-type"] = self.model_type
 
         if self.use_azure:
-            request.headers["x-use-azure"] = "true"
+            request.headers["x-use-azure"] = "True"
+        elif not self.use_azure:
+            request.headers["x-use-azure"] = "False"
 
         yield request
 
@@ -108,8 +121,11 @@ class WhyHow:
         azure_openai_api_key: str | None = None,
         azure_openai_version: str | None = None,
         azure_openai_endpoint: str | None = None,
-        base_url: str = BASE_URL,
-        use_azure: bool = False,
+        azure_openai_model_name: str | None = None,
+        azure_openai_embedding_name: str | None = None,
+        base_url:
+            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
+        use_azure: Optional[bool] = False,
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""
@@ -151,13 +167,13 @@ class WhyHow:
             )
 
         if azure_openai_version is None:
-            azure_openai_version = os.environ.get("AZURE_OPENAI_VERSION")
+            azure_openai_version = os.environ.get("AZURE_OPENAI_API_VERSION")
 
             if (
                 azure_openai_api_key is not None
                 and azure_openai_version is None
             ):
-                raise ValueError("AZURE_OPENAI_VERSION must be set.")
+                raise ValueError("AZURE_OPENAI_API_VERSION must be set.")
 
         if azure_openai_endpoint is None:
             azure_openai_endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
@@ -167,6 +183,26 @@ class WhyHow:
                 and azure_openai_endpoint is None
             ):
                 raise ValueError("AZURE_OPENAI_ENDPOINT must be set.")
+
+        if azure_openai_model_name is None:
+            azure_openai_model_name = os.environ.get("AZURE_OPENAI_MODEL_NAME")
+
+            if (
+                azure_openai_api_key is not None
+                and azure_openai_model_name is None
+            ):
+                raise ValueError("AZURE_OPENAI_MODEL_NAME must be set.")
+
+        if azure_openai_embedding_name is None:
+            azure_openai_embedding_name = os.environ.get(
+                "AZURE_OPENAI_EMBEDDING_NAME"
+            )
+
+            if (
+                azure_openai_api_key is not None
+                and azure_openai_embedding_name is None
+            ):
+                raise ValueError("AZURE_OPENAI_EMBEDDING_NAME must be set.")
 
         if neo4j_user is None:
             neo4j_user = os.environ.get("NEO4J_USER")
@@ -197,6 +233,8 @@ class WhyHow:
             azure_openai_api_key,
             azure_openai_version,
             azure_openai_endpoint,
+            azure_openai_model_name,
+            azure_openai_embedding_name,
             use_azure,
         )
 
@@ -244,7 +282,8 @@ class AsyncWhyHow:
         neo4j_password: str | None = None,
         neo4j_url: str | None = None,
         model_type: Optional[str] | None = None,
-        base_url: str = BASE_URL,
+        base_url:
+            str = "https://43nq5c1b4c.execute-api.us-east-2.amazonaws.com",
         httpx_kwargs: dict[str, Any] | None = None,
     ) -> None:
         """Initialize the client."""

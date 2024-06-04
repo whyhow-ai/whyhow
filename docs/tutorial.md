@@ -17,7 +17,7 @@ To keep your API keys and credentials secure, set them as environment variables.
 export WHYHOW_API_KEY=<YOUR_WHYHOW_API_KEY>
 export PINECONE_API_KEY=<YOUR_PINECONE_API_KEY>
 export OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
-export NEO4J_USER=<YOUR_NEO4J_USERNAME>
+export NEO4J_USER=<YOUR_NEO4J_USER>
 export NEO4J_PASSWORD=<YOUR_NEO4J_PASSWORD>
 export NEO4J_URL=<YOUR_NEO4J_DATABASE_URL>
 ```

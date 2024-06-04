@@ -29,11 +29,15 @@ EXAMPLE_GRAPH = Graph(
 
 
 class TestGraphAPIQuery:
-    """Tests for the query_graph method."""
+    """Tests for the `query` method."""
 
     def test_query_graph(self, httpx_mock):
-        """Test the query_graph method."""
-        client = WhyHow()
+        """Test that the method sends the correct request."""
+        client = WhyHow(
+            openai_api_key="fake_openai_key",
+            azure_openai_api_key=None,
+            azure_openai_version=None,
+        )
         query = "What friends does Alice have?"
 
         fake_response_body = QueryGraphResponse(
@@ -70,11 +74,15 @@ class TestGraphAPIQuery:
 
 
 class TestGraphAPIAddDocuments:
-    """Tests for the add_documents method."""
+    """Tests for the `add_documents` method."""
 
     def test_errors(self, httpx_mock, tmp_path):
-        """Test error cases."""
-        client = WhyHow()
+        """Test that the method raises errors when necessary."""
+        client = WhyHow(
+            openai_api_key="fake_openai_key",
+            azure_openai_api_key=None,
+            azure_openai_version=None,
+        )
 
         with pytest.raises(ValueError, match="No documents provided"):
             client.graph.add_documents("something", documents=[])
