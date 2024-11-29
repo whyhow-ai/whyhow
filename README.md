@@ -10,7 +10,9 @@
 The WhyHow Knowledge Graph Creation SDK enables you to quickly and easily build automated knowledge graphs tailored to your unique worldview. Instantly build, extend, and query well-scoped KGs with your data.
 
 > [!WARNING]
-> This SDK is currently in a closed beta. To get an API key, [please schedule some time to chat with us](https://calendly.com/whyhowai/intro-call-whyhow-ai).
+> This is an old API that has now been deprecated.
+> We no longer focus on KG creation SDKs, and are focused on KG orchestration and management through our KG Studio.
+> We have open-sourced the backend of our KG Studio here: https://github.com/whyhow-ai/knowledge-graph-studio 
 
 # Installation
 
