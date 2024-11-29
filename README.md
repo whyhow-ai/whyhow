@@ -1,4 +1,10 @@
-# WhyHow Knowledge Graph Creation SDK
+# (Deprecated) WhyHow Knowledge Graph Creation SDK
+
+
+> [!CAUTION]
+> This repo has been **deprecated** and is no longer supported. Instead please see the [Knowledge Graph Studio](https://github.com/whyhow-ai/knowledge-graph-studio).
+> We are focusing on KG orchestration and management through our KG Studio. The Knowledge Graph Studio has been open-sourced here - https://github.com/whyhow-ai/knowledge-graph-studio.
+
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
@@ -9,10 +15,6 @@
 
 The WhyHow Knowledge Graph Creation SDK enables you to quickly and easily build automated knowledge graphs tailored to your unique worldview. Instantly build, extend, and query well-scoped KGs with your data.
 
-> [!WARNING]
-> This is an old API that has now been deprecated.
-> We no longer focus on KG creation SDKs, and are focused on KG orchestration and management through our KG Studio.
-> We have open-sourced the backend of our KG Studio here: https://github.com/whyhow-ai/knowledge-graph-studio 
 
 # Installation
 
